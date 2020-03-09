@@ -1,4 +1,4 @@
-console.log(doGet('https://www.datos.gov.co/resource/x84b-t6fw.json'))
+// console.log(doGet('https://www.datos.gov.co/resource/x84b-t6fw.json'))
 
 // funtions
 function doGet(url) {
