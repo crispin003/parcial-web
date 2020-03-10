@@ -92,19 +92,45 @@
                 <div class="container-fluid">
                     <h1>Visitas Red Municipal de Bibliotecas Públicas Año 2018</h1>
                     <h5>Total de visitas atendidas por la Red municipal de bibliotecas públicas Eduardo Carranza
-                        Fernández en el periodo Enero - Diciembre 2018</h5>
+                        Fernández en el periodo Enero - Diciembre 2018<a
+                            href="https://www.datos.gov.co/Cultura/Visitas-Red-Municipal-de-Bibliotecas-P-blicas-A-o-/yec2-e4mm">
+                            Conjunto de datos </a></h5>
 
-                    <!-- Bar Chart -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Total visitas por mes</h6>
-                        </div>
-                        <div class="card-body">
-                            <div class="chart-bar">
-                                <canvas id="myBarChart"></canvas>
+                    <div class="row">
+
+                        <div class="col-xl-8 col-lg-7">
+
+                            <!-- Bar Chart -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Total visitas mes</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Total de visitas a la biblioteca por mes
+                                </div>
                             </div>
-                            <hr>
-                            Total de visitas a la biblioteca por mes
+                        </div>
+
+                        <!-- Donut Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Porcentaje visitas por rango</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPieChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Porcentaje de visitas por el rango de edad
+                                </div>
+                            </div>
                         </div>
                     </div>
 

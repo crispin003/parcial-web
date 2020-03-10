@@ -6,12 +6,13 @@ fetch('https://www.datos.gov.co/resource/yec2-e4mm.json')
         return response.json();
     })
     .then(function (myJson) {
-        paintComponents(myJson);
+        paintBarChart(myJson);
+        paintPaiChart(myJson);
         generateTable(myJson);
     });
 
 //funtions        
-function paintComponents(jsonElements) {
+function paintBarChart(jsonElements) {
     // console.log(json);
     var ctx = document.getElementById("myBarChart");
     var jsonSize = jsonElements.length
@@ -138,6 +139,67 @@ function number_format(number, decimals, dec_point, thousands_sep) {
         s[1] += new Array(prec - s[1].length + 1).join('0');
     }
     return s.join(dec);
+}
+
+function paintPaiChart(jsonElements) {
+    var ctx = document.getElementById("myPieChart");
+    var labels = [];
+    var data = [];
+    var colors = [];
+    var total = jsonElements[jsonElements.length - 1].totales
+    for (var i = 0; i < jsonElements.length - 1; i++) {
+        labels[i] = jsonElements[i].rango_de_edad;
+        data[i] = (jsonElements[i].totales * 100) / total;
+        colors[i] = getRandomColor();
+    }
+    console.log(labels);
+    console.log(data);
+    var myPieChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: data,
+                backgroundColor: colors,
+                hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+                hoverBorderColor: "rgba(234, 236, 244, 1)",
+            }],
+        },
+        options: {
+            maintainAspectRatio: false,
+            tooltips: {
+                backgroundColor: "rgb(255,255,255)",
+                bodyFontColor: "#858796",
+                borderColor: '#dddfeb',
+                borderWidth: 1,
+                xPadding: 15,
+                yPadding: 15,
+                displayColors: false,
+                caretPadding: 10,
+            },
+            legend: {
+                display: false
+            },
+            cutoutPercentage: 80,
+        },
+    });
+}
+
+function getRandomColor() {
+    hexadecimal = new Array("0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F")
+    color_aleatorio = "#";
+    for (i = 0; i < 6; i++) {
+        posarray = aleatorio(0, hexadecimal.length)
+        color_aleatorio += hexadecimal[posarray]
+    }
+    return color_aleatorio
+}
+
+function aleatorio(inferior, superior) {
+    numPosibilidades = superior - inferior
+    aleat = Math.random() * numPosibilidades
+    aleat = Math.floor(aleat)
+    return parseInt(inferior) + aleat
 }
 
 function generateTable(elementsJson) {
