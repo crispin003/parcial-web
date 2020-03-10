@@ -7,6 +7,7 @@ fetch('https://www.datos.gov.co/resource/yec2-e4mm.json')
     })
     .then(function (myJson) {
         paintComponents(myJson);
+        generateTable(myJson);
     });
 
 //funtions        
@@ -118,4 +119,71 @@ function number_format(number, decimals, dec_point, thousands_sep) {
         s[1] += new Array(prec - s[1].length + 1).join('0');
     }
     return s.join(dec);
+}
+
+function generateTable(elementsJson) {
+    var table = document.getElementById("dataTable");
+    var html = `
+    <thead>
+        <tr>
+            <th>Rango de edad</th>
+            <th>Enero</th>
+            <th>Febrero</th>
+            <th>Marzo</th>
+            <th>Abril</th>
+            <th>Mayo</th>
+            <th>Junio</th>
+            <th>Julio</th>
+            <th>Agosto</th>
+            <th>Septiembre</th>
+            <th>Octubre</th>
+            <th>Noviembre</th>
+            <th>Diciembre</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tfoot>
+        <tr>
+        <th>Rango de edad</th>
+        <th>Enero</th>
+        <th>Febrero</th>
+        <th>Marzo</th>
+        <th>Abril</th>
+        <th>Mayo</th>
+        <th>Junio</th>
+        <th>Julio</th>
+        <th>Agosto</th>
+        <th>Septiembre</th>
+        <th>Octubre</th>
+        <th>Noviembre</th>
+        <th>Diciembre</th>
+        <th>Total</th>
+        </tr>
+    </tfoot>
+    <tbody>
+    `;
+    for (let json of elementsJson) {
+        html += `
+        <tr>
+            <td>${json.rango_de_edad}</td>
+            <td>${json.enero_2018}</td>
+            <td>${json.febrero_2018}</td>
+            <td>${json.marzo_2018}</td>
+            <td>${json.abril_2018}</td>
+            <td>${json.mayo_2018}</td>
+            <td>${json.junio_2018}</td>
+            <td>${json.julio_2018}</td>
+            <td>${json.agosto_2018}</td>
+            <td>${json.septiembre_2018}</td>
+            <td>${json.octubre_2018}</td>
+            <td>${json.noviembre_2018}</td>
+            <td>${json.diciembre_2018}</td>
+            <td>${json.totales}</td>
+        </tr>
+        `;
+    }
+    html += `
+    </tbody>
+        `;
+    table.innerHTML = html;
 }
