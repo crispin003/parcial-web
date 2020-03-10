@@ -11,19 +11,38 @@ fetch('https://www.datos.gov.co/resource/yec2-e4mm.json')
     });
 
 //funtions        
-function paintComponents(json) {
+function paintComponents(jsonElements) {
     // console.log(json);
     var ctx = document.getElementById("myBarChart");
+    var jsonSize = jsonElements.length
+    console.log(jsonSize);
+    var visitsPerMonth = [
+        jsonElements[jsonSize - 1].enero_2018,
+        jsonElements[jsonSize - 1].febrero_2018,
+        jsonElements[jsonSize - 1].marzo_2018,
+        jsonElements[jsonSize - 1].abril_2018,
+        jsonElements[jsonSize - 1].mayo_2018,
+        jsonElements[jsonSize - 1].junio_2018,
+        jsonElements[jsonSize - 1].julio_2018,
+        jsonElements[jsonSize - 1].agosto_2018,
+        jsonElements[jsonSize - 1].septiembre_2018,
+        jsonElements[jsonSize - 1].octubre_2018,
+        jsonElements[jsonSize - 1].noviembre_2018,
+        jsonElements[jsonSize - 1].diciembre_2018
+    ];
+
     var myBarChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ["January", "February", "March", "April", "May", "June"],
+            labels: ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio",
+                "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+            ],
             datasets: [{
-                label: "Revenue",
+                label: "Visitas",
                 backgroundColor: "#4e73df",
                 hoverBackgroundColor: "#2e59d9",
                 borderColor: "#4e73df",
-                data: [4215, 5312, 6251, 7841, 9821, 14984],
+                data: visitsPerMonth,
             }],
         },
         options: {
@@ -53,12 +72,12 @@ function paintComponents(json) {
                 yAxes: [{
                     ticks: {
                         min: 0,
-                        max: 15000,
+                        max: 4000,
                         maxTicksLimit: 5,
                         padding: 10,
                         // Include a dollar sign in the ticks
                         callback: function (value, index, values) {
-                            return '$' + number_format(value);
+                            return number_format(value);
                         }
                     },
                     gridLines: {
@@ -88,7 +107,7 @@ function paintComponents(json) {
                 callbacks: {
                     label: function (tooltipItem, chart) {
                         var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                        return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                        return datasetLabel + " " + number_format(tooltipItem.yLabel);
                     }
                 }
             },
