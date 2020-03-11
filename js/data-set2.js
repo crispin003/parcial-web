@@ -107,11 +107,29 @@ function generateTable(elementsJson) {
 
 function paintPolarChart(elementsJson) {
     var ctx = document.getElementById("myPolarChart");
-    var data = []
-    var labels = []
-    var colors = []
+    var data = [1]
+    var labels = [elementsJson[0].departamento]
+    var colors = [getRandomColor()]
+    for (let json of elementsJson) {
+        var isRepeated = false;
+        var position = 0;
+        for (var i = 0; i < labels.length; i++) {
+            if (labels[i] == json.departamento) {
+                isRepeated = true;
+                position = i;
+            }
+        }
+        if (!isRepeated) {
+            labels[labels.length] = json.departamento;
+            data[data.length] = 1;
+            colors[colors.length] = getRandomColor();
+        } else {
+            data[position] += 1;
+        }
 
-    var myBarChart = new Chart(ctx, {
+    }
+
+    var myPolarChart = new Chart(ctx, {
         data: {
             labels: labels,
             datasets: [{
@@ -122,9 +140,7 @@ function paintPolarChart(elementsJson) {
             }],
         },
         type: 'polarArea',
-        options: {
-
-        }
+        options: {}
     });
 }
 
