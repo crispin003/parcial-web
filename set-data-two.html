@@ -84,31 +84,58 @@
                 <!-- Topbar Navbar -->
                 <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
                     <div class="align-items-center">
-                        <h3 class="text-center">Introduccion</h3>
+                        <h3 class="text-center">Conjunto de datos 2</h3>
                     </div>
                 </nav>
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <h1>ZONAS WIFI GRATIS PARA LA GENTE - 20190331</h1>
+                    <h5>En este documento se encuentra la ubicación con coordenadas geográficas (formato decimal) de las zonas wifi gratis que el Ministerio TIC a desplegó a través de la Dirección de Promoción TIC (Proyecto Zonas Wifi Gratis para la gente) en cada municipio y departamento del país.<a
+                            href="https://www.datos.gov.co/Ciencia-Tecnolog-a-e-Innovaci-n/ZONAS-WIFI-GRATIS-PARA-LA-GENTE-20190331/wsrw-hr5d">
+                            Conjunto de datos </a></h5>
+
+                        <!-- Polar Chart -->
+                        <div class="col-xl-4 col-lg-5">
+                            <div class="card shadow mb-4">
+                                <!-- Card Header - Dropdown -->
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Porcentaje visitas por rango</h6>
+                                </div>
+                                <!-- Card Body -->
+                                <div class="card-body">
+                                    <div class="chart-pie pt-4">
+                                        <canvas id="myPolarChart"></canvas>
+                                    </div>
+                                    <hr>
+                                    Porcentaje de visitas por el rango de edad
+                                </div>
+                            </div>
+                        </div>
+
+                    <!-- table data -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Tabla del conjundo de datos</h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+
+                                </table>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
             </div>
         </div>
 
-        <!-- Bootstrap core JavaScript-->
-        <script src="vendor/jquery/jquery.min.js"></script>
-        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-        <!-- Core plugin JavaScript-->
-        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-        <!-- Custom scripts for all pages-->
-        <script src="js/sb-admin-2.min.js"></script>
-
-        <!-- Page level plugins -->
+        <!-- Page level pluins -->
         <script src="node_modules/chart.js/dist/Chart.js"></script>
 
         <!-- rest script -->
-        <script src="js/Peticiones.js"></script>
+        <script src="js/data-set2.js"></script>
+
     </div>
 </body>
