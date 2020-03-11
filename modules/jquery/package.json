@@ -21,7 +21,7 @@
   "_resolved": "https://registry.npmjs.org/jquery/-/jquery-3.4.1.tgz",
   "_shasum": "714f1f8d9dde4bdfa55764ba37ef214630d80ef2",
   "_spec": "jquery@>=1.7",
-  "_where": "C:\\Users\\crisd\\OneDrive\\Documentos\\universidad\\Cristhian\\Noveno semestre\\Ingenieria web I\\parcial_1\\node_modules\\datatables.net",
+  "_where": "C:\\Users\\crisd\\OneDrive\\Documentos\\universidad\\Cristhian\\Noveno semestre\\Ingenieria web I\\parcial_1\\modules\\datatables.net",
   "author": {
     "name": "JS Foundation and other contributors",
     "url": "https://github.com/jquery/jquery/blob/3.4.1/AUTHORS.txt"
@@ -108,7 +108,7 @@
   "homepage": "https://jquery.com",
   "husky": {
     "hooks": {
-      "commit-msg": "node node_modules/commitplease",
+      "commit-msg": "node modules/commitplease",
       "pre-commit": "grunt lint:newer qunit_fixture"
     }
   },
